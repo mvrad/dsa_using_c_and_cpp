@@ -29,12 +29,12 @@ Open the files in an IDE such as [Visual Studio Code](https://code.visualstudio.
 For Mac users who want to use Visual Studio Code as their C++ IDE, install Microsoft's [C++ Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) in the extensions view in VS Code.
 
 Ensure Clang is installed.
-```Bash
+```bash
 clang --version
 ```
 
 You will need to create a tasks.json file and replace the contents of that file with the following:
-```JSON
+```json
 {
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
