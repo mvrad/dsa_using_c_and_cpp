@@ -7,7 +7,7 @@ using namespace std;
 // Class/Object
 class Rectangle
 {
-  // Declare the variables as private
+  // In C++, "class" is private by default whereas "struct" is public by default.
   private:
   int length, width;
   /*
