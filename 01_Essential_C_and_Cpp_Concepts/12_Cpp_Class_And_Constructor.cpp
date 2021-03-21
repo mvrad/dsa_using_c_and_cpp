@@ -22,13 +22,11 @@ class Rectangle
     ~Rectangle();
 };
 
-// :: is the "scope resolution operator"
+// To define functions outside of class you must use "::", aka the "scope
+// resolution operator"
 Rectangle::Rectangle(int l, int w) { length = l; width = w; }
-
 int Rectangle::area() { return length * width; }
-
 int Rectangle::perimeter() { return 2 * (length + width); }
-
 Rectangle::~Rectangle() {}
 
 int main()
