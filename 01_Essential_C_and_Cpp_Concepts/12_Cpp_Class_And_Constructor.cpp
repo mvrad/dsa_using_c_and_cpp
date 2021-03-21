@@ -10,10 +10,7 @@ class Rectangle
     int length, width;
   public:
     // Rectangle(), area(), and perimeter() are known as "facilitators"
-    Rectangle()
-    {
-      length = width = 1;
-    }
+    Rectangle() { length = width = 1; }
     Rectangle(int l, int w);
     int area();
     int perimeter();
