@@ -32,7 +32,7 @@ int area(struct Rectangle r)
 void changeLength(struct Rectangle *r, int l)
 {
   r->length = l;
-  cout << ", New Length: " << l;
+  cout << ", New Length: " << l << endl;
 }
 
 int main()
