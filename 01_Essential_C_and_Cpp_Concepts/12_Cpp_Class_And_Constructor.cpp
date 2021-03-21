@@ -25,7 +25,7 @@ class Rectangle
     ~Rectangle();
 };
 
-// :: is the "scopre resolution operator"
+// :: is the "scope resolution operator"
 Rectangle::Rectangle(int l, int w) { length = l; width = w; }
 
 int Rectangle::area() { return length * width; }
