@@ -3,17 +3,17 @@
  *
  * These examples lead to what is known as Object Oriented
  * Programming (OOP), the highest level of programming in
- * the C++ language.
+ * the C language.
  */
 
 #include <iostream>
 
 using namespace std;
+
 struct Rectangle
 {
   int length, width;
 };
-
 
 void initialize(struct Rectangle *r, int l, int w)
 {
