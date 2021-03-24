@@ -1,7 +1,14 @@
+// Physical vs Logical Data Structures
+
 /*
- * Physical vs Logical Data Structures
- * 
  * Physical
+ * 
+ * These two data structures are physical because they define how the memory should
+ * be organized for storing the elements or the data. So, in essence these two
+ * structures are more related to memory.
+ * 
+ * If you already know the size of the list and if it is fixed, go with an array.
+ * If you don't know the size, you should go with a linked list.
  * 
  * 1. Array
  * 
@@ -9,100 +16,36 @@
  * 
  * 2. Linked List
  * 
- * // A simple CPP program to introduce
- * // a linked list
- * #include <bits/stdc++.h>
- * using namespace std;
- *   
- * class Node {
- * public:
- *     int data;
- *     Node* next;
- * };
- * 
- * // Program to create a simple linked
- * // list with 3 nodes
- * int main()
+ * class Node
  * {
- *     Node* head = NULL;
- *     Node* second = NULL;
- *     Node* third = NULL;
+ *  public:
+ *    int data;
+ *    Node* next;
+ * };
+ */
+
+/*
+ * Logical
  * 
- *     // allocate 3 nodes in the heap
- *     head = new Node();
- *     second = new Node();
- *     third = new Node();
+ * Logical data structures are actually used in algorithms. And for implementing
+ * these data structures we have to choose between using an array or a linked list,
+ * or even a combination of an array and a linked list.
  * 
- *     /* Three blocks have been allocated dynamically. 
- *     We have pointers to these three blocks as head, 
- *     second and third     
- *     head         second         third 
- *         |             |             | 
- *         |             |             | 
- *     +---+-----+     +----+----+     +----+----+ 
- *     | # | # |     | # | # |     | # | # | 
- *     +---+-----+     +----+----+     +----+----+ 
+ * Linear
  * 
- * # represents any random value. 
- * Data is random because we haven’t assigned 
- * anything yet */
+ * LIFO (Last In First Out)
+ * 1. Stack
+ * FIFO (First In First Out)
+ * 2. Queue
  * 
- *     head->data = 1; // assign data in first node
- *     head->next = second; // Link first node with
- *     // the second node
+ * Non-Linear
  * 
- *     /* data has been assigned to the data part of first 
- *     block (block pointed by the head). And next 
- *     pointer of the first block points to second. 
- *     So they both are linked. 
+ * A tree is a graph arranged in a heirarchy
+ * 3. Tree
+ * A graph is a collection of nodes and the links between the nodes
+ * 4. Graph
  * 
- *     head         second         third 
- *         |             |             | 
- *         |             |             | 
- *     +---+---+     +----+----+     +-----+----+ 
- *     | 1 | o----->| # | # |     | # | # | 
- *     +---+---+     +----+----+     +-----+----+     
- *
- *     // assign data to second node
- *     second->data = 2;
- *
- *     // Link second node with the third node
- *     second->next = third;
+ * Tabular
  * 
- *     /* data has been assigned to the data part of the second 
- *     block (block pointed by second). And next 
- *     pointer of the second block points to the third 
- *     block. So all three blocks are linked. 
- * 
- *     head         second         third 
- *         |             |             | 
- *         |             |             | 
- *     +---+---+     +---+---+     +----+----+ 
- *     | 1 | o----->| 2 | o-----> | # | # | 
- *     +---+---+     +---+---+     +----+----+     */
- * 
- *     third->data = 3; // assign data to third node
- *     third->next = NULL;
- * 
- *     /* data has been assigned to the data part of the third 
- *     block (block pointed by third). And next pointer 
- *     of the third block is made NULL to indicate 
- *     that the linked list is terminated here. 
- * 
- *     We have the linked list ready. 
- * 
- *         head     
- *             | 
- *             | 
- *         +---+---+     +---+---+     +----+------+ 
- *         | 1 | o----->| 2 | o-----> | 3 | NULL | 
- *         +---+---+     +---+---+     +----+------+     
- * 
- * 
- *     Note that only the head is sufficient to represent 
- *     the whole list. We can traverse the complete 
- *     list by following the next pointers. */
- * 
- *     return 0;
- * }
+ * 5. Hash Table
  */

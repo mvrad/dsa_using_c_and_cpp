@@ -62,10 +62,4 @@
  * 
  * Heap memory should be explicity requested, and later explicitly released. Loss of
  * memory, memory that has not been explicity released, is called 'memory leak'.
- * 
- * 
- * 
- * 
- * 
- * 
  */
