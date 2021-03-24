@@ -36,6 +36,32 @@
  * 
  * Memory allocation that is done at compile-time is called "static memory allocation".
  * What is static? The size of memory is static. When was it decided? At compile-time.
+ * The currently executing function will access the top-most activation record. All of
+ * this happens in the memory and behaves like a stack (LIFO). Unlike stack memory, heap
+ * memory is not organized. Heap memory should be treated like a resource, and should be
+ * carefully managed. In other words, only take what is required from heap memory and
+ * when it is not needed anymore, release it so other programs can use it. Programs by
+ * default cannot access heap memory directly. They can access it indirectly using
+ * 'pointers'.
+ * 
+ * Whenever you see the word 'new':
+ * 
+ * int *p; // 4 bytes
+ * p = new int[5];
+ * 
+ * Then a pointer is being used. In the C language, the word 'malloc' is used:
+ * 
+ * p = (int *)malloc(4 * 5)
+ * 
+ * The pointer provides the address to the variable located in heap memory.
+ * 
+ * In the same way the memrory is allocated, it then must be deallocated.
+ * 
+ * delete []p;
+ * p = null;
+ * 
+ * Heap memory should be explicity requested, and later explicitly released. Loss of
+ * memory, memory that has not been explicity released, is called 'memory leak'.
  * 
  * 
  * 
