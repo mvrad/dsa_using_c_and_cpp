@@ -1,8 +1,8 @@
+// Types of Recursion:
+
 #include <iostream>
 
 using namespace std;
-
-// Types of Recursion:
 
 // 1. Tail Recursion - Linear Recursion
 // When the recursive function call is the last statement in the function
