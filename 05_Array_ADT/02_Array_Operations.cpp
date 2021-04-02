@@ -67,19 +67,41 @@ void swap(int *x, int *y)
 int LinearSearch(struct Array *arr, int key)
 {
   for (int i = 0; i < arr -> length; i++)
+    // Move key element one step forward, "transposition"
     if (key == arr -> A[i])
     {
+      // Move key element to front/head
       swap(&arr -> A[i], &arr -> A[0]);
       return i;
     }
   return -1;
 }
 
+// Binary Search
+int BinarySearch(struct Array arr, int key)
+{
+  int l = 0, h = arr.length - 1, mid;
+  while (l <= h){
+    mid = (l+h) / 2;
+    if (key == arr.A[mid]) {
+      return mid; cout << endl;
+    }
+    else if (key < arr.A[mid]) {
+      h = mid - 1;
+    }
+    else {
+      l = mid + 1;
+    }
+  }
+  cout << "Unsuccessful" << " ";
+  return -1; cout << endl;
+}
+
 
 
 int main()
 {
-  struct Array arr1 = {{2, 3, 4, 5, 6}, 10, 5};
+  struct Array arr1 = {{2, 3, 4, 5, 6}, 5, 5};
   // &arr1 is the address of arr1, append 10 to the end of arr1
   Append(&arr1, 10);
   // Insert 12 at index 0 in arr1
@@ -90,5 +112,7 @@ int main()
   Display(arr1);
   // Perform linear search
   cout << "Element of value 12 is at index: " << LinearSearch(&arr1, 12) << endl;
+  // Perform binary search
+  cout << "Element of value 5 is at index: " << BinarySearch(arr1, 5) << endl;
   return 0;
 }
