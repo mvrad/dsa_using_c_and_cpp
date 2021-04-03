@@ -7,6 +7,7 @@ using namespace std;
 class Array
 {
   private:
+    // Allocate memory in heap using a pointer, *A
     int *A, size, length;
   public:
     Array(int size);
@@ -24,6 +25,7 @@ class Array
 
 Array::Array(int size)
 {
+  // Allocate memory in heap using the "new" keyword/operator
   A = new int[size];
 }
 
@@ -34,14 +36,14 @@ void Array::Create()
     cout << "Element at index " << i << ": ";
     cin >> A[i];
   }
-  cout << endl;
+  cout << "\n";
 }
 
 void Array::Display()
 {
   for (int i = 0; i < length; i++)
     cout << A[i] << " ";
-  cout << endl;
+  cout << "\n";
 }
 
 void Array::Append(int x)
@@ -89,43 +91,6 @@ int Array::Linear(int key)
   return -1;
 }
 
-int Array::Binary(int key)
-{
-  int l = 0, h = length - 1, mid;
-  while (l <= h) {
-    mid = (l+h) / 2;
-    if(key == A[mid]) {
-      cout << "Successful At Index: ";
-      return mid; cout << endl;
-    }
-    else if (key < A[mid]) {
-      h = mid - 1;
-    }
-    else {
-      l = mid + 1;
-    }
-  }
-  cout << "Unsuccessful" << " ";
-  return -1; cout << endl;
-}
-
-int Array::Rbinary(int l, int h, int key)
-{
-  int mid;
-  if (l <= h)
-    mid = floor((l + h) / 2);
-    if (key == A[mid]) {
-      cout << "Successful At Index: ";
-      return mid; cout << endl;
-    } else if (key < A[mid]) {
-      return Rbinary(l, mid - 1, key);
-    } else {
-      return Rbinary(mid + 1, h, key);
-    }
-  cout << "Unsuccessful" << " ";
-  return -1; cout << endl;
-}
-
 Array::~Array()
 {
   delete []A;
@@ -133,25 +98,20 @@ Array::~Array()
 
 int main()
 {
-  Array arr(4);
+  Array arr(100);
   arr.Create();
   cout << "Array: ";
   arr.Display();
-  cout << endl;
+  cout << "\n";
   cout << "Append 100: ";
   arr.Append(100);
-  arr.Display(); cout << endl;
+  arr.Display(); cout << "\n";
   cout << "Insert 100 at Index 2: ";
   arr.Insert(2, 100);
-  arr.Display(); cout << endl;
+  arr.Display(); cout << "\n";
   cout << "Delete Element At Index 3: ";
   arr.Delete(3);
-  arr.Display(); cout << endl;
+  arr.Display(); cout << "\n";
   cout << "Linear Search For Element 6: ";
-  cout << arr.Linear(6) << endl; cout << endl;
-  // cout << "Binary Search For Element 6: ";
-  // cout << arr.Binary(6) << endl; cout << endl;
-  // cout << "Recursive Binary Search For Element 6: ";
-  // cout << arr.Rbinary(0, 4, 6) << endl; cout << endl;
-  return 0;
+  cout << arr.Linear(6) << "\n"; cout << endl;
 }

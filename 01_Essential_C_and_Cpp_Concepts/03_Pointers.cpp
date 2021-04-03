@@ -36,7 +36,7 @@ int main()
   cout << endl;
   // Whenever you declare a variable, it will exist inside the stack
   int *p;
-  // When you want to get a variable in the heapk, you have to declare 'malloc' (in C),
+  // When you want to get a variable in the heap, you have to declare 'malloc' (in C),
   // Memory Allocation in C
   // p = (int *)malloc(5 * sizeof(int));
   // in C++

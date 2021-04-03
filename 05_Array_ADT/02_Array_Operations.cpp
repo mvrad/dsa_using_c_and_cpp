@@ -16,7 +16,7 @@ void Display(struct Array arr)
   cout << "Array elements: ";
   for (int i = 0; i < arr.length; i++)
     cout << arr.A[i] << " ";
-  cout << endl;
+  cout << "\n";
 }
 
 // Add an element to the end of an array
@@ -82,9 +82,9 @@ int BinarySearch(struct Array arr, int key)
 {
   int l = 0, h = arr.length - 1, mid;
   while (l <= h){
-    mid = (l+h) / 2;
+    mid = (l + h) / 2;
     if (key == arr.A[mid]) {
-      return mid; cout << endl;
+      return mid; cout << "\n";
     }
     else if (key < arr.A[mid]) {
       h = mid - 1;
@@ -94,7 +94,7 @@ int BinarySearch(struct Array arr, int key)
     }
   }
   cout << "Unsuccessful" << " ";
-  return -1; cout << endl;
+  return -1; cout << "\n";
 }
 
 
@@ -111,8 +111,7 @@ int main()
   // Display the elements in the array
   Display(arr1);
   // Perform linear search
-  cout << "Element of value 12 is at index: " << LinearSearch(&arr1, 12) << endl;
+  cout << "Element of value 12 is at index: " << LinearSearch(&arr1, 12) << "\n";
   // Perform binary search
   cout << "Element of value 5 is at index: " << BinarySearch(arr1, 5) << endl;
-  return 0;
 }
