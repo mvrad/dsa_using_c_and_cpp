@@ -5,7 +5,7 @@
 
 ## To Set Up Locally
 
-## Requirements
+### Requirements
 
 * [Git](http://git-scm.com/)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
@@ -19,7 +19,7 @@
 * A compiler such as [GCC](https://gcc.gnu.org/)
 
 To copy the repository's files from here onto your computer and to view and serve those files locally, at your computer's command line type:
-```bash
+```
 git clone https://github.com/mvrad/dsa_using_c_and_cpp.git
 ```
 Open the files in an IDE such as [Visual Studio Code](https://code.visualstudio.com/).
