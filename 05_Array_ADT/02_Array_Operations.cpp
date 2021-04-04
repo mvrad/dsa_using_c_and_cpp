@@ -60,25 +60,25 @@ void Delete(struct Array *arr, int index)
 }
 
 // Linear Search
-void swap(int *x, int *y)
+void Swap(int *x, int *y)
 {
   int temp = *x; *x=*y; *y=temp;
 }
-int LinearSearch(struct Array *arr, int key)
+int Linear(struct Array *arr, int key)
 {
   for (int i = 0; i < arr -> length; i++)
     // Move key element one step forward, "transposition"
     if (key == arr -> A[i])
     {
       // Move key element to front/head
-      swap(&arr -> A[i], &arr -> A[0]);
+      Swap(&arr -> A[i], &arr -> A[0]);
       return i;
     }
   return -1;
 }
 
 // Binary Search
-int BinarySearch(struct Array arr, int key)
+int Binary(struct Array arr, int key)
 {
   int l = 0, h = arr.length - 1, mid;
   while (l <= h){
@@ -97,6 +97,21 @@ int BinarySearch(struct Array arr, int key)
   return -1; cout << "\n";
 }
 
+// Recursive Binary Search
+int RBinary(int a[], int l, int h, int key)
+{
+  int mid;
+  if (l <= h)
+    mid = (l + h) / 2;
+    if (key == a[mid])
+      return mid;
+    else if (key < a[mid])
+      return RBinary(a, l, mid - 1, key);
+    else
+      return RBinary(a, mid + l, h, key);
+  return -1;
+}
+
 
 
 int main()
@@ -111,7 +126,9 @@ int main()
   // Display the elements in the array
   Display(arr1);
   // Perform linear search
-  cout << "Element of value 12 is at index: " << LinearSearch(&arr1, 12) << "\n";
+  cout << "Element of value 12 is at index: " << Linear(&arr1, 12) << "\n";
   // Perform binary search
-  cout << "Element of value 5 is at index: " << BinarySearch(arr1, 5) << endl;
+  cout << "Element of value 5 is at index: " << Binary(arr1, 5) << "\n";
+  // Perform recursive binary search
+  cout << "Element of value 5 is at index: " << RBinary(arr1.A, 0, arr1.length, 5) << endl;
 }
