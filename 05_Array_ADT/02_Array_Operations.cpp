@@ -1,4 +1,10 @@
-// Array Operations
+/*
+ * Array Data Type (ADT)
+ * 
+ * The term 'array' is often used to mean array data type, a kind of data type provided by
+ * most high-level programming languages that consists of a collection of values or
+ * variables that can be selected by one or more indices computed at run-time.
+ */
 
 #include <iostream>
 
