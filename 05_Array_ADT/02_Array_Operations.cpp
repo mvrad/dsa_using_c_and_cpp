@@ -10,11 +10,16 @@ struct Array
   int A[10], size, length;
 };
 
+// Swap x and y
+void Swap(int *x, int *y)
+{
+  int temp = *x; *x=*y; *y=temp;
+}
+
 // Display the contents of the array
 // Asymptotic Complexity | Time: O(n)
 void Display(struct Array arr)
 {
-  cout << "Array elements: ";
   for (int i = 0; i < arr.length; i++)
     cout << arr.A[i] << " ";
   cout << "\n";
@@ -24,10 +29,8 @@ void Display(struct Array arr)
 // Asymptotic Complexity | Time: O(n)
 void Append(struct Array *arr, int x)
 {
-  // Check the array for free space
-  if (arr -> length < arr -> size)
-    // Then store the value of x at the end of the array
-    arr -> A[arr -> length++] = x;
+  // Store the value of x at the end of the array
+  arr -> A[arr -> length++] = x;
 }
 
 // Insert an element at a given index and shift elements to the right
@@ -65,10 +68,6 @@ void Delete(struct Array *arr, int index)
 
 // Linear Search
 // Asymptotic Complexity | Time: O(n), Space: O(1)
-void Swap(int *x, int *y)
-{
-  int temp = *x; *x=*y; *y=temp;
-}
 int Linear(struct Array *arr, int key)
 {
   for (int i = 0; i < arr -> length; i++)
@@ -119,11 +118,62 @@ int RBinary(int a[], int l, int h, int key)
   return -1;
 }
 
+// Get an element at the given index
+int Get(struct Array arr, int index) // Time: O(1)
+{
+  if (index >= 0 && index < arr.length)
+    return arr.A[index];
+  return -1;
+}
+
+// Set an element at the given index
+void Set(struct Array *arr, int index, int x) // Time: O(1)
+{
+  if (index >= 0 && index < arr -> length)
+    arr -> A[index] = x;
+}
+
+// Get the maximum valued element
+int Max(struct Array arr) // Time: O(n)
+{ // --------------------------------------- f(n)
+  int max = arr.A[0]; // ------------------- 1
+  for (int i = 0; i < arr.length; i++) // -- n
+    if (arr.A[i] > max) // ----------------- n - 1
+      max = arr.A[i]; // ------------------- May or may not execute
+  return max; // --------------------------- 1
+} // --------------------------------------- 2n + 1 = O(n)
+
+// Get the minimum valued element
+int Min(struct Array arr) // Time: O(n)
+{
+  int min = arr.A[0];
+  for (int i = 0; i < arr.length; i++)
+    if (arr.A[i] < min)
+      min = arr.A[i];
+  return min;
+}
+
+// Get the sum of all the elements
+int Sum(struct Array arr)
+{ // --------------------------------------- f(n)
+  int s = 0; // ---------------------------- 1
+  for (int i = 0; i < arr.length; i++) // -- n + 1
+    s += arr.A[i]; // ---------------------- n
+  return s; // ----------------------------- 1
+} // --------------------------------------- 2n + 3 = O(n)
+
+// Average
+float Avg(struct Array arr)
+{
+  return (float)Sum(arr) / arr.length;
+}
+
 
 
 int main()
 {
   struct Array arr1 = {{2, 3, 4, 5, 6}, 5, 5};
+  cout << "Starting array: "; Display(arr1);
   // &arr1 is the address of arr1, append 10 to the end of arr1
   Append(&arr1, 10);
   // Insert 12 at index 0 in arr1
@@ -131,11 +181,24 @@ int main()
   // Delete element at index 2 in arr1
   Delete(&arr1, 2);
   // Display the elements in the array
-  Display(arr1);
+  cout << "Updated array elements: "; Display(arr1);
   // Perform linear search
   cout << "Element of value 12 is at index: " << Linear(&arr1, 12) << "\n";
   // Perform binary search
-  cout << "Element of value 5 is at index: " << Binary(arr1, 5) << "\n";
+  cout << "Element of value 10 is at index: " << Binary(arr1, 10) << "\n";
   // Perform recursive binary search
-  cout << "Element of value 5 is at index: " << RBinary(arr1.A, 0, arr1.length, 5) << endl;
+  cout << "Element of value 5 is at index: " << RBinary(arr1.A, 0, arr1.length, 5) << "\n";
+  // Perform get
+  cout << "Get element at index 4: " << Get(arr1, 4) << "\n";
+  // Perform set
+  Set(&arr1, 1, 5);
+  cout << "Set new element 5 at index 1: "; Display(arr1);
+  // Perform max
+  cout << "Maximum value of array is: " << Max(arr1) << "\n";
+  // Perform min
+  cout << "Minimum value of array is: " << Min(arr1) << "\n";
+  // Perform sum
+  cout << "Sum of all the elements: " << Sum(arr1) << "\n";
+  // Perform avg
+  cout << "Average of all the elements: " << Avg(arr1) << endl;
 }
