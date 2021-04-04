@@ -11,6 +11,7 @@ struct Array
 };
 
 // Display the contents of the array
+// Asymptotic Complexity | Time: O(n)
 void Display(struct Array arr)
 {
   cout << "Array elements: ";
@@ -20,6 +21,7 @@ void Display(struct Array arr)
 }
 
 // Add an element to the end of an array
+// Asymptotic Complexity | Time: O(n)
 void Append(struct Array *arr, int x)
 {
   // Check the array for free space
@@ -28,7 +30,8 @@ void Append(struct Array *arr, int x)
     arr -> A[arr -> length++] = x;
 }
 
-// Insert an element at a given index
+// Insert an element at a given index and shift elements to the right
+// Asymptotic Complexity | Time: O(n)
 void Insert(struct Array *arr, int index, int x)
 {
   // Check if the index given is valid or not
@@ -44,6 +47,7 @@ void Insert(struct Array *arr, int index, int x)
 }
 
 // Delete an element at the given index
+// Asymptotic Complexity | Time: O(n)
 void Delete(struct Array *arr, int index)
 {
   int x = 0;
@@ -60,6 +64,7 @@ void Delete(struct Array *arr, int index)
 }
 
 // Linear Search
+// Asymptotic Complexity | Time: O(n), Space: O(1)
 void Swap(int *x, int *y)
 {
   int temp = *x; *x=*y; *y=temp;
@@ -77,7 +82,8 @@ int Linear(struct Array *arr, int key)
   return -1;
 }
 
-// Binary Search
+// Binary Search (Iterative)
+// Asymptotic Complexity | Time: O(log n), Space: O(1)
 int Binary(struct Array arr, int key)
 {
   int l = 0, h = arr.length - 1, mid;
@@ -97,7 +103,8 @@ int Binary(struct Array arr, int key)
   return -1; cout << "\n";
 }
 
-// Recursive Binary Search
+// Binary Search (Recursive)
+// Asymptotic Complexity | Time: O(log n), Space: O(log n)
 int RBinary(int a[], int l, int h, int key)
 {
   int mid;
