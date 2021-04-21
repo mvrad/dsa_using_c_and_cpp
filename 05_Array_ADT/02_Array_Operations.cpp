@@ -174,6 +174,43 @@ float Avg(struct Array arr)
   return (float)Sum(arr) / arr.length;
 }
 
+// Reverse
+
+void Reverse(struct Array *arr)
+{
+  int i, j;
+  for (i = 0, j = arr -> length - 1; i < j; i++, j--)
+  {
+    Swap (&arr -> A[i], &arr -> A[j]);
+  }
+}
+
+void Reverse2(int a[], int start, int end)
+{
+  if (start >= end)
+  return;
+
+  int temp = a[start];
+  a[start] = a[end];
+  a[end] = temp;
+
+  Reverse2(a, start + 1, end - 1);
+}
+
+// Left Shift
+
+
+
+// Left Rotate
+
+
+
+// Right Shift
+
+
+
+// Right Rotate
+
 
 
 int main()
@@ -206,5 +243,13 @@ int main()
   // Perform sum
   cout << "Sum of all the elements: " << Sum(arr1) << "\n";
   // Perform avg
-  cout << "Average of all the elements: " << Avg(arr1) << endl;
+  cout << "Average of all the elements: " << Avg(arr1) << "\n";
+  // Display Array 1
+  cout << "Array 1 before reversal: "; Display(arr1);
+  // Reverse method 1
+  Reverse(&arr1);
+  cout << "Reverse method 1: "; Display (arr1);
+  // Reverse method 2
+  Reverse2(arr1.A, 0, 5);
+  cout << "Reverse method 2: "; Display (arr1);
 }
